@@ -81,6 +81,7 @@ class MainUI(
     saveCode()
     compile()
   })
+  println("Setting up UI.. done")
 
 	val $ = js.Dynamic.global.$
   val mainboardUI = new MainboardUI(s)

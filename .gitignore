@@ -34,3 +34,6 @@ node_modules/
 
 .metals/*
 .scalafmt.conf
+
+#intellij idea stuff
+.idea

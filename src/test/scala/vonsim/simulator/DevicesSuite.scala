@@ -1,6 +1,6 @@
 package vonsim.simulator
 import vonsim.utils.CollectionUtils._
-import org.scalatest.FunSuite
+import org.scalatest.funsuite.AnyFunSuite
 import Simulator._
 import ComputerWord._
 import com.sun.org.apache.bcel.internal.generic.ArithmeticInstruction
@@ -9,7 +9,7 @@ import vonsim.assembly.Compiler.SuccessfulCompilation
 import scala.io.Source
 import vonsim.assembly.lexer.Lexer
 
-class DevicesSuite extends FunSuite {
+class DevicesSuite extends AnyFunSuite {
   
     def simulator(program:String)={
     val compilation= Compiler(program)

@@ -2,6 +2,8 @@ package vonsim.simulator
 
 import ComputerWord._
 
+import scala.language.implicitConversions
+
 object ComputerWord {
 
   def minimalWordFor(x: Int) = {

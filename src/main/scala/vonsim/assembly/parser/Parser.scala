@@ -3,14 +3,17 @@ package vonsim.assembly.parser
 import scala.util.parsing.combinator.Parsers
 import scala.util.parsing.input.{NoPosition, Position, Reader}
 import vonsim.assembly.lexer._
+
 import scala.Left
 import scala.Right
-
 import vonsim.assembly.ParserError
 import vonsim.assembly.Location
+
 import scala.util.parsing.input.Positional
 import vonsim.assembly.i18n.English
 import vonsim.assembly.i18n.CompilerLanguage
+
+import scala.language.postfixOps
 import scala.util.Random
 
 object Parser extends MyParsers {

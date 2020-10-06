@@ -1,7 +1,6 @@
 package vonsim.webapp
 import vonsim.utils.CollectionUtils._
 import vonsim.simulator.InstructionInfo
-import scala.scalajs.js.annotation.ScalaJSDefined
 import scala.scalajs.js.annotation.JSName
 import org.scalajs.dom.html._
 import org.scalajs.dom.raw.HTMLElement

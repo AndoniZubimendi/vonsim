@@ -10,8 +10,10 @@ import vonsim.simulator._
 import vonsim.assembly.parser.ZeroAry
 import vonsim.utils.CollectionUtils._
 import vonsim.assembly.parser.LabeledInstruction
+
 import scala.util.parsing.input.Positional
 import vonsim.assembly.lexer.VarType
+
 import scala.collection.mutable.ListBuffer
 import vonsim.assembly.parser.VarDef
 import vonsim.simulator.UndefinedIndirectMemoryAddress
@@ -27,9 +29,12 @@ import vonsim.assembly.parser.LabelExpression
 import vonsim.assembly.parser.OffsetLabelExpression
 import vonsim.assembly.i18n.CompilerLanguage
 import vonsim.assembly.i18n.English
+
 import scala.util.Random
 import vonsim.assembly.lexer.DB
 import vonsim.assembly.lexer.LowRegisterToken
+
+import scala.language.postfixOps
 
 object Compiler {
 

@@ -2,11 +2,12 @@ package vonsim.webapp
 
 import scala.scalajs.js
 import org.scalajs.dom.raw.HTMLDocument
-import scala.scalajs.js.annotation.JSGlobalScope
+
+import scala.scalajs.js.annotation.{JSGlobal, JSGlobalScope}
 import org.scalajs.dom.raw.Element
-import scala.scalajs.js.annotation.ScalaJSDefined
 
 @js.native
+@JSGlobal
 object Mousetrap extends js.Object {
   def bind(
     key: String,

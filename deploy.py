@@ -40,7 +40,7 @@ def wait_for_output(process,output):
 
 
 print("Compiling with SBT...")
-proc = subprocess.Popen('sbt fullOptJS',shell=True)
+proc = subprocess.Popen('sbt fastOptJS',shell=True)
 proc.wait()
 print("Moving files to {}...".format(args.output))
 
@@ -53,11 +53,11 @@ print("Moving assets folder from '{}' to '{}'...".format(assets_folder,output_as
 
 dir_util.copy_tree(assets_folder,output_assets_folder)
 
-compiled_js_folder='target/scala-2.11'
+compiled_js_folder='target/scala-2.12'
 output_compiled_js_folder=os.path.join(output_folder,compiled_js_folder)
 makedirs_ifnot(output_compiled_js_folder)
 
-compiled_js_file=os.path.join(compiled_js_folder,'vonsim-opt.js')
+compiled_js_file=os.path.join(compiled_js_folder,'vonsim-fastopt.js')
 compiled_js_file_map=compiled_js_file+".map"
 output_compiled_js_file=os.path.join(output_folder,compiled_js_file)
 output_compiled_js_file_map=os.path.join(output_folder,compiled_js_file_map)
@@ -65,6 +65,6 @@ print("Moving compiled js file to '{}' and source map to '{}'...".format(compile
 file_util.copy_file(compiled_js_file,output_compiled_js_file)
 file_util.copy_file(compiled_js_file_map,output_compiled_js_file_map)
 index_path=os.path.join(output_assets_folder,'index.html')
-print("Replacing fastopt.js for opt.js in {}".format(index_path))
-replace_string_in_file(index_path,'fastopt.js','opt.js')
+#print("Replacing fastopt.js for opt.js in {}".format(index_path))
+#replace_string_in_file(index_path,'fastopt.js','opt.js')
 

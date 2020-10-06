@@ -1,15 +1,13 @@
 package vonsim.webapp
 
 import scala.scalajs.js
-import scala.scalajs.js.annotation.ScalaJSDefined
-import scala.scalajs.js.annotation.JSName
+import scala.scalajs.js.annotation.{JSGlobal, JSName}
 import com.scalawarrior.scalajs.ace.Editor
-import com.scalawarrior.scalajs.ace.Annotation
+import com.scalawarrior.scalajs.ace.{Annotation => ScalaJSAnnotation}
 import com.scalawarrior.scalajs.ace.Position
 import com.scalawarrior.scalajs.ace.Range
 
-@ScalaJSDefined
-@JSName("Ace")
+//@JSName("Ace")
 trait MyAce extends js.Object {
   def edit(): Editor
 }
@@ -23,17 +21,17 @@ object Annotation {
     column: Double,
     text: String,
     `type`: String
-  ): Annotation =
+  ): ScalaJSAnnotation =
     js.Dynamic
       .literal(row = row, column = column, text = text, `type` = `type`)
-      .asInstanceOf[Annotation]
+      .asInstanceOf[ScalaJSAnnotation]
 }
 
 package object webapp {
   lazy val myace: MyAce = global.ace.asInstanceOf[MyAce]
 }
 @js.native
-@JSName("AceRange")
+@JSGlobal
 class AceRange protected () extends Range {
   def this(
     startRow: Double,

@@ -3,22 +3,22 @@ package vonsim.webapp
 // tutorial https://www.scala-js.org/tutorial/basic/
 // canvas https://github.com/vmunier/scalajs-simple-canvas-game/blob/master/src/main/scala/simplegame/SimpleCanvasGame.scala
 
-import scala.scalajs.js.JSApp
 import scala.scalajs.js
 import org.scalajs.dom
 import org.scalajs.dom.Element
-
 import dom.document
-import scala.scalajs.js.annotation.JSExport
+
+import scala.scalajs.js.annotation.{JSExport, JSExportTopLevel, JSGlobal}
 import scalatags.JsDom.all._
 import org.scalajs.dom.raw.HTMLElement
-import js.JSConverters._
 
+import js.JSConverters._
 import java.awt.Event
+
 import scala.util.parsing.input.Position
 import scala.scalajs.js.timers._
-
 import dom.ext._
+
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import vonsim.simulator.Simulator
 import vonsim.assembly.Compiler
@@ -58,7 +58,9 @@ object URLParametersParser {
     parametersTuple.toMap
   }
 }
-object Main extends JSApp {
+
+@JSExportTopLevel("Main")
+object Main {
 
   def getParameters() = URLParametersParser(dom.window.location.search)
 
@@ -104,7 +106,9 @@ object Main extends JSApp {
       }
     }
   }
-  def main(): Unit = {
+
+  @JSExport
+  def main(args: Array[String]): Unit = {
     println("Getting language code")
     val languageCode = getLanguageCode()
     println("Getting language")
@@ -209,4 +213,5 @@ hlt
 end
 """
 
+  def jsAccessor(): Main.type = this
 }

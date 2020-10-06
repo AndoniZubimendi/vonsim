@@ -2,12 +2,12 @@ package vonsim.webapp
 
 import scala.scalajs.js
 import org.scalajs.dom.raw.HTMLDocument
-import scala.scalajs.js.annotation.JSGlobalScope
+
+import scala.scalajs.js.annotation.{JSGlobal, JSGlobalScope}
 import org.scalajs.dom.raw.Element
-import scala.scalajs.js.annotation.ScalaJSDefined
 
 @js.native
-//@JSGlobalScope
+@JSGlobal
 class Clusterize(p: ClusterizeProps) extends js.Object {
 
   def destroy(b: Boolean = false): Unit = js.native
@@ -21,14 +21,12 @@ class Clusterize(p: ClusterizeProps) extends js.Object {
   def refresh(b: Boolean = false): Unit = js.native
 }
 
-@ScalaJSDefined
 trait ClusterizeCallbacksProps extends js.Object {
   val clusterWillChange: js.UndefOr[js.Function0[Unit]] = js.undefined
   val clusterChanged: js.UndefOr[js.Function0[Unit]] = js.undefined
   val scrollingProgress: js.UndefOr[js.Function1[Int, Unit]] = js.undefined
 }
 
-@ScalaJSDefined
 trait ClusterizeProps extends js.Object {
   val rows: js.UndefOr[js.Array[String]] = js.undefined
   val scrollId: js.UndefOr[String] = js.undefined

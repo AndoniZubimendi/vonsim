@@ -1,15 +1,16 @@
 package vonsim.simulator
 import vonsim.utils.CollectionUtils._
-import org.scalatest.FunSuite
 import Simulator._
 import ComputerWord._
 import com.sun.org.apache.bcel.internal.generic.ArithmeticInstruction
+import org.scalatest.funsuite.AnyFunSuite
 import vonsim.assembly.Compiler
 import vonsim.assembly.Compiler.SuccessfulCompilation
+
 import scala.io.Source
 
 
-class ExpressionSuite extends FunSuite {
+class ExpressionSuite extends AnyFunSuite {
   
   
   

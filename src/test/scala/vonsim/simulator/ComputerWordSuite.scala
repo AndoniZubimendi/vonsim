@@ -1,11 +1,11 @@
 package vonsim.simulator
 
-import org.scalatest.FunSuite
+import org.scalatest.funsuite.AnyFunSuite
 import Simulator._
 import ComputerWord._
 
 
-class DWordSuite extends FunSuite {
+class DWordSuite extends AnyFunSuite {
   val alu=new ALU()
   
   test("DWord creation with strings") {
@@ -117,7 +117,7 @@ class DWordSuite extends FunSuite {
     assertResult(65)(IndexedSeq(1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0).toDWord.toInt)
   }
 }
-  class WordSuite extends FunSuite {
+  class WordSuite extends AnyFunSuite {
     
     
   test("Word creation with strings") {

@@ -1,6 +1,6 @@
 package vonsim.simulator
 import vonsim.utils.CollectionUtils._
-import org.scalatest.FunSuite
+import org.scalatest.funsuite.AnyFunSuite
 import Simulator._
 import ComputerWord._
 import com.sun.org.apache.bcel.internal.generic.ArithmeticInstruction
@@ -14,7 +14,7 @@ import org.scalatest.enablers.Length
 //import vonsim.assembly.lexer.Lexer
 
 
-class NewLexerSuite extends FunSuite {
+class NewLexerSuite extends AnyFunSuite {
 
   def getTokens(program: String, assertLength: Int) = {
     val tokens = Tokenizer(program,0)

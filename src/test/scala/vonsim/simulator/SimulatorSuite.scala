@@ -1,12 +1,12 @@
 package vonsim.simulator
 
-import org.scalatest.FunSuite
+import org.scalatest.funsuite.AnyFunSuite
 import Simulator._
 import ComputerWord._
 import com.sun.org.apache.bcel.internal.generic.ArithmeticInstruction
 
 
-class SimulatorSuite extends FunSuite {
+class SimulatorSuite extends AnyFunSuite {
   
   def instructionsToProgram(is:List[Instruction],baseIP:Int)={ 
     var address=baseIP
