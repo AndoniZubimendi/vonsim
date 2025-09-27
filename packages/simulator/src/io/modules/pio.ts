@@ -106,8 +106,8 @@ export abstract class PIO extends IOModule<PIORegister> {
     yield { type: "pio:read", register };
 
     let value: Byte<8>;
-    if (register === "PA") value = this.PA;
-    else if (register === "PB") value = this.PB;
+    if (register === "PA") value = Byte.fromUnsigned(this.PA.unsigned & this.CA.unsigned, 8);
+    else if (register === "PB") value = Byte.fromUnsigned(this.PB.unsigned & this.CB.unsigned, 8);
     else if (register === "CA") value = this.CA;
     else if (register === "CB") value = this.CB;
     else return register; // Exhaustive check
@@ -119,8 +119,16 @@ export abstract class PIO extends IOModule<PIORegister> {
   *write(register: PIORegister, value: Byte<8>): EventGenerator {
     yield { type: "pio:write", register, value };
 
-    if (register === "PA") this.PA = value;
-    else if (register === "PB") this.PB = value;
+    if (register === "PA")
+      this.PA = Byte.fromUnsigned(
+        (value.unsigned & ~this.CA.unsigned) | (this.PA.unsigned & this.CA.unsigned),
+        8,
+      );
+    else if (register === "PB")
+      this.PB = Byte.fromUnsigned(
+        (value.unsigned & this.CB.unsigned) | (this.PB.unsigned & this.CB.unsigned),
+        8,
+      );
     else if (register === "CA") this.CA = value;
     else if (register === "CB") this.CB = value;
     else return register; // Exhaustive check
